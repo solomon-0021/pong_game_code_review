@@ -33,3 +33,52 @@ For Github repository (https://github.com/jakesgordon/javascript-pong)
 - _comprehensive documentation explaining the relationship between parts_
 
 ## Logic
+ **Code initialization sequence**
+ 
+ *game.js*
+ 
+    1. Game.start(id, game, cfg): creates runner instance
+    2. Runner.initialize(): sets up canvas, context, events
+    3. object.construct(game): instantiates actual game logic
+    4. game.start(): begins game loop
+  **Strength**
+  - Clear separation between framework and game logic
+  - Consistent error handling for browser compatibility
+  - Modular function organization
+  
+ **Concern**
+ - Monolithic object(game contains everything)
+ - Mixed responsibilities(polyfills, framework, runner)
+ - Complex initialization logic
+ 
+*index.html*
+
+**Strength**
+- Clear separation of content, presentation, and behavior
+- Progressive enhancement with canvas fallback
+- Modular script loading with proper dependency order
+- Semantic HTML structure with logical sections
+- Comprehensive documentation integrated with UI
+
+**Concern**
+- Inline script could be externalized for better separation
+- No viewport meta tag for mobile responsiveness
+- Hard-coded navigation paths may break in different environments
+
+*pong.js*
+
+**Strength**
+- Excellent separation of concerns with dedicated subsystems
+- Modular AI system with configurable difficulty
+- Efficient collision detection using mathematical intercepts
+- Clean state management with clear transitions
+
+**Concern**
+- Tight coupling between Ball and Paddle for collision
+- Global pong reference in all sub-objects
+- Mixed responsibilities in paddle(rendering + AI + physics)
+- Complex prediction logic with multiple edge cases
+
+
+
+
