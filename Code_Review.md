@@ -81,4 +81,62 @@ For Github repository (https://github.com/jakesgordon/javascript-pong)
 
 
 
+## Game design and Functionality
+### Core Functionality
+- **Game Modes**
+
+    - Demo Mode (0): computer play itself
+    - Single Player(1): play against intelligent computer opponent
+    - Double Player(2): two player local multiplayer
+    
+ - **Control Scheme**
+ 
+   ***Player 1(left)***
+       
+    - Move up: Q key
+    - Move down: A key
+    
+   ***Player 2(right)***
+   
+    - Move up: P key
+    - Move down: L key
+    
+   ***Game control***
+   
+    - Start demo: 0 key
+    - Start single player: 1 key
+    - Start double player: 2 key
+   
+ - ***AI system design***
+   
+   - *Dynamic difficulty*: AI skill scales based on score difference (17 difficulty levels)
+   - *Prediction system*: calculate ball trajectory with configurable error margins
+   - *Reaction time*: simulated human like response delays
+   - *Visual debugging*: displays prediction boxes showing exact vs estimated interception point
+   
+ - ***Game mechanics(physics system)***
+  - *Accelerating ball*: ball speed increase over time for progressive difficulty
+  - *Paddle spin*: ball trajectory changes based on paddle movement direction
+  - *Wall bouncing*: realistic angle preservation on wall collisions
+  - *Collision detection*: mathematical line intersection for precise hit detection
+
+
+### Strength
+    
+   - ***Technical excellence***: advanced AI, smooth performance, browser compatibility and responsive design
+   - ***User experience***: multiplayer mode, progressive difficulty, visual feedback, intuitive control
+   - ***Code architecture***: modular design, extensible framework, professional polish
+   
+### Areas for concern
+- ***Technical limitations***: no mobile support, audio limitations, global state, input lag
+- ***User experience gaps***:  no pause functionality, limited customization, no save system, minimal feedback
+- ***Browser compatibility***: canvas dependency, modern JS features, audio support
+
+### Potential enhancements
+ - Improving the game by working on the above concern areas
+ - Online multiplayer support
+ - Tournaments mode with leaderboards
+ - Customizable visuals and thems
+
+
 
