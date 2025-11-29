@@ -156,7 +156,7 @@ For Github repository (https://github.com/jakesgordon/javascript-pong)
 
 ## A. AI performance 
 - AI recalculates only after reaction time ->efficient 
-Low CPU usage 
+- Low CPU usage 
 
 ## 4. Potential Performance Issues 
  - Full canvas re-draw each frame
