@@ -138,5 +138,33 @@ For Github repository (https://github.com/jakesgordon/javascript-pong)
  - Tournaments mode with leaderboards
  - Customizable visuals and thems
 
+# pong Game - Efficiency and Performance 
+
+## 1. HTML Structure sfficiency 
+ - Lightweight and simple markup 
+ - Canvas used, whcih is good for game rendering 
+ - separation of CSS and JS improves maintainability
+
+## 2. Asset Loading Performance 
+  - Two Javascript files ('game.js', 'pong.js')
+  - Consider using defer for better loading
+  - possible optimization: minify JS files 
+
+## 3. Canvas Rendering Performance 
+ - Rendering performance depends on the game loop implementation
+ - Recommend using requestAnimationFrame
+
+## A. AI performance 
+- AI recalculates only after reaction time ->efficient 
+Low CPU usage 
+
+## 4. Potential Performance Issues 
+ - Full canvas re-draw each frame
+ - Inline script could be moved to external files
+
+## 5. Optimization Suggestions
+ - Add defer to script tags
+ - Reduce blocking render script 
+ - cache repeated calculations
 
 
