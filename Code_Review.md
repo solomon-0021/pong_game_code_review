@@ -139,32 +139,79 @@ For Github repository (https://github.com/jakesgordon/javascript-pong)
  - Customizable visuals and thems
 
 # pong Game - Efficiency and Performance 
+## Overall Architecture and Design
 
-## 1. HTML Structure sfficiency 
+  - The game follows a modular architecture that separates concerns clearly:
+  - Game Engine (Game.Runner): Handles the game loop, timing, rendering, and input events.
+  - Game Logic (Pong): Manages rules, scoring, levels, and player interactions.
+  * Game Components: Ball, paddles, court, menu, and AI are implemented as independent modules.
+  - This separation improves maintainability and prevents unnecessary coupling, which contributes positively to performance by keeping logic organized and predictable
+
+## Game Loop and Timing Performance
+ - The game loop uses setInterval() to update and draw frames at a fixed frame rate.
+ * Efficiency Evaluation:
+ - Delta time (dt) is used for movement, making gameplay frame-rate independent.
+ - However, setInterval() may cause timing drift and continues running even when the browser tab is inactive.
+  * Impact on Performance:
+  - Can lead to unnecessary CPU usage.
+  - Less smooth animation compared to browser-synchronized rendering.
+
+##  HTML Structure sfficiency 
  - Lightweight and simple markup 
  - Canvas used, whcih is good for game rendering 
  - separation of CSS and JS improves maintainability
 
-## 2. Asset Loading Performance 
+## Asset Loading Performance 
   - Two Javascript files ('game.js', 'pong.js')
   - Consider using defer for better loading
   - possible optimization: minify JS files 
 
-## 3. Canvas Rendering Performance 
+##  Canvas Rendering Performance 
  - Rendering performance depends on the game loop implementation
  - Recommend using requestAnimationFrame
 
-## A. AI performance 
+##  AI performance 
 - AI recalculates only after reaction time ->efficient 
 - Low CPU usage 
 
-## 4. Potential Performance Issues 
+##  Potential Performance Issues 
  - Full canvas re-draw each frame
  - Inline script could be moved to external files
 
-## 5. Optimization Suggestions
+##  Optimization Suggestions
  - Add defer to script tags
  - Reduce blocking render script 
  - cache repeated calculations
 
+ ## Collision Detection and Physics
+ - nCollision detection uses mathematical line-intersection logic to determine ball interactions with paddles and walls.
+ * Performance Analysis:
+ - Accurate collision detection ensures consistent gameplay.
+ - Floating-point calculations are computationally heavier but acceptable due to the small number of objects
+## Conclusion:
+- Efficient for a simple game like Pong.
+- Would need optimization only if the number of moving objects increased significantly.
+
+## Memory Usage and Object Creation
+- Some functions create temporary objects during each frame update, such as new position and velocity objects. This may slightly increase garbage collection activity and cause minor performance overhead during long gameplay sessions. However, the impact is low and acceptable for a game of this scale.
+
+## Input Handling Efficiency
+- Keyboard input is handled using keydown and keyup event listeners. This event-driven approach avoids unnecessary polling. Paddle movement is controlled using state-based flags, making input handling efficient with negligible performance cost.
+
+## CSS and Layout Performance
+- CSS media queries are used to scale the canvas and control sidebar visibility. The layout remains static during gameplay, and no frequent DOM manipulation occurs. This results in minimal layout and rendering overhead.
+
+## Overall Performance Assessment
+- The Pong game demonstrates efficient use of system resources and stable performance.
+* Its strengths include:
+- Frame-rate independent movement
+- Efficient rendering using double buffering
+- Optimized AI prediction logic
+- Clear separation between game engine and game logic
+* Minor limitations include:
+- Use of setInterval() instead of browser-optimized animation timing
+- Minor overhead from temporary object creation
+
+## Conclusion
+- Overall, the Pong game is efficient and well-designed for its intended scale. It performs well in modern browsers and supports smooth real-time gameplay, with only minor optimizations needed for further improvement.
 
